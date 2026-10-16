@@ -1065,7 +1065,7 @@
                     sourceStats: {
                         "Mock Trade Data": { rows: "1,800", size: "45.62 KB", passed: 90, invalid: 8, nulls: 2, eScore: 0.90, updated: latestRunDate },
                         "generate_complex_data": { rows: "1,200", size: "30.41 KB", passed: 95, invalid: 3, nulls: 2, eScore: 0.95, updated: formatUpdatedDate(new Date(Date.now() - 86400000)) },
-                        "northwind": { rows: "1,000", size: "25.34 KB", passed: 88, invalid: 9, nulls: 3, eScore: 0.88, updated: formatUpdatedDate(new Date(Date.now() - 2 * 86400000)) }
+                        "northwind": { rows: "1,000", size: "25.34 KB", passed: 88, invalid: 9, nulls: 3, eScore: 0.76, updated: formatUpdatedDate(new Date(Date.now() - 2 * 86400000)) }
                     }
                 },
                 // Designed Data Dictionary (design order)
@@ -1429,7 +1429,7 @@
             overviewRowCache = allFiles;
             tbody.innerHTML = allFiles.map((item, idx) => {
                 let escoreColor = "text-green-700 bg-green-50 border-green-200";
-                if(item.escore < 0.9) escoreColor = "text-orange-700 bg-orange-50 border-orange-200";
+                if(item.escore < 0.8) escoreColor = "text-orange-700 bg-orange-50 border-orange-200";
                 if(item.escore < 0.7) escoreColor = "text-red-700 bg-red-50 border-red-200";
                 
                 const dash = `<span class="text-gray-300">—</span>`;
@@ -1635,10 +1635,14 @@
             const badge = document.getElementById("escore-badge");
             const val = document.getElementById("escore-value");
             val.innerText = escore.toFixed(2);
-            if (escore >= 0.9) {
+            if (escore >= 0.8) {
                 val.className = "text-[28px] leading-9 font-normal text-green-700 leading-none";
                 badge.className = "bg-green-50 text-green-700 border border-green-200 text-xs px-2.5 py-1 rounded-full font-medium";
                 badge.innerText = "Optimal";
+            } else if (escore >= 0.7) {
+                val.className = "text-[28px] leading-9 font-normal text-orange-700 leading-none";
+                badge.className = "bg-orange-50 text-orange-700 border border-orange-200 text-xs px-2.5 py-1 rounded-full font-medium";
+                badge.innerText = "Monitor";
             } else {
                 val.className = "text-[28px] leading-9 font-normal text-red-700 leading-none";
                 badge.className = "bg-red-50 text-red-700 border border-red-200 text-xs px-2.5 py-1 rounded-full font-medium";

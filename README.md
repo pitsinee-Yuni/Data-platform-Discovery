@@ -6,7 +6,7 @@ Interactive prototype of the **Discovery Application** for the Excise Generative
 
 ## What's in it
 
-- **Platform Overview** – all data products, one row per data product and source, with Pass, Chain Exhausted, Completeness and E-Score. Pass = cells with a value that converted; Chain Exhausted = cells with a value that no transformer could convert; Completeness = cells that have a value (100% − empty cells, higher is better, orange below 90%). Click an E-Score to open its Quality Report; right-click a name to rename or delete.
+- **Platform Overview** – all data products, one row per data product and source, with Pass, Chain Exhausted, Completeness and E-Score. Pass = cells with a value that converted; Chain Exhausted = cells with a value that no transformer could convert; Completeness = cells that have a value (100% − empty cells, higher is better, orange below 90%). E-Score badge: green at 80% or more, orange 70–79%, red below 70%. Click an E-Score to open its Quality Report; right-click a name to rename or delete.
 - **Overview** – KPI cards, editable metadata (DGA standard), source chips, E-Score and Responsible Persons.
 - **Data Dictionary** – column design compared with the ingested data (Missing / Not in design / Found as), add, edit and remove columns.
 - **Preview** – sample rows with column search, source and date filters, sorting.
