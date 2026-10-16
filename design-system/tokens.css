@@ -1,0 +1,72 @@
+/* Discovery Design System — generated from tokens.json */
+:root {
+  --brand: #02a6e7;
+  --primary: #0b57d0;
+  --primary-hover: #1d4ed8;
+  --primary-soft: #eff6ff;
+  --on-primary: #ffffff;
+  --secondary-container: #c2e7ff;
+  --on-secondary-container: #001d35;
+  --surface: #ffffff;
+  --surface-dim: #f8f9fa;
+  --surface-container: #e9eef6;
+  --surface-container-high: #e1e5ea;
+  --row-hover: #f4f7fc;
+  --ink: #1f1f1f;
+  --ink-muted: #444746;
+  --ink-faint: #9ca3af;
+  --outline: #747775;
+  --border: #e5e7eb;
+  --border-control: #d1d5db;
+  --success: #15803d;
+  --success-mark: #22c55e;
+  --success-soft: #dcfce7;
+  --on-success-soft: #166534;
+  --warning: #ea580c;
+  --warning-mark: #f97316;
+  --warning-text: #c2410c;
+  --warning-soft: #ffedd5;
+  --on-warning-soft: #9a3412;
+  --warning-row: #fff7ed;
+  --caution: #d97706;
+  --caution-soft: #fffbeb;
+  --caution-border: #fcd34d;
+  --on-caution-soft: #78350f;
+  --danger: #b91c1c;
+  --danger-action: #dc2626;
+  --danger-mark: #ef4444;
+  --danger-soft: #fef2f2;
+  --info: #3b82f6;
+  --info-soft: #dbeafe;
+  --on-info-soft: #1e40af;
+  --info-row: #eff6ff;
+  --scrim: rgba(0, 0, 0, 0.4);
+  --toast: #111827;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-dialog: 28px;
+  --radius-full: 9999px;
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-menu: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-dialog: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --font-sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-thai: "Noto Sans Thai", Tahoma, sans-serif;
+}
+.headline-medium { font-family: var(--font-sans); font-size: 28px; line-height: 36px; font-weight: 400; }
+.headline-small { font-family: var(--font-sans); font-size: 24px; line-height: 32px; font-weight: 400; }
+.title-large { font-family: var(--font-sans); font-size: 22px; line-height: 28px; font-weight: 400; }
+.title-medium { font-family: var(--font-sans); font-size: 16px; line-height: 24px; font-weight: 500; }
+.body-medium { font-family: var(--font-sans); font-size: 14px; line-height: 20px; font-weight: 400; }
+.body-small { font-family: var(--font-sans); font-size: 12px; line-height: 16px; font-weight: 400; }
+.label-small { font-family: var(--font-sans); font-size: 11px; line-height: 16px; font-weight: 500; }
+.mono-medium { font-family: var(--font-mono); font-size: 14px; line-height: 20px; font-weight: 400; }
+.mono-small { font-family: var(--font-mono); font-size: 11px; line-height: 16px; font-weight: 500; }

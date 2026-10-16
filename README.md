@@ -18,3 +18,7 @@ All data is mock data built into the page; changes reset when the page is reload
 ## Files
 
 - `index.html` – the whole prototype in one file (Tailwind CSS, Chart.js and the Inter font load from public CDNs, so an internet connection is needed).
+
+## Design System
+
+The shared design standard (colours, Google Drive / Material 3 type scale, spacing, components, logo) is in [`design-system/`](design-system/). Start with `design-system/README.md`.
