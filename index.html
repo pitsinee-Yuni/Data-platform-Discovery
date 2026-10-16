@@ -3719,34 +3719,22 @@
 
         // Real rows behind a bar segment: request id, day, source value and what the rule did with it
         function renderEngineRuleRows(db, colName, ruleName, state, tone) {
+            // Show only the clicked column (its source value), same as the other Investigate rows views
             const idx = engRuleRows(db, engQualityRows(db), colName, ruleName, state);
             const c = db.engine.cols.find(x => x.name === colName);
-            const idCol = 0;
             const th = 'px-4 py-2.5 text-left font-medium text-sm border-b border-gray-200';
-            const resultHead = state === 'fail' ? 'Reason' : 'Converted value';
             document.getElementById('investigate-modal-head').innerHTML = `
                 <tr>
-                    <th class="${th} text-drive-textVariant">${escapeHtml(db.schema[idCol].name)}</th>
-                    <th class="${th} text-drive-textVariant">Day</th>
                     <th class="${th} ${tone.th}">${escapeHtml(colName)} <span class="font-normal">(source value)</span></th>
-                    <th class="${th} text-drive-textVariant">${resultHead}</th>
                 </tr>`;
             const showVal = v => String(v).trim() === ''
                 ? `<span class="italic font-sans text-gray-400">(empty)</span>`
                 : `'${escapeHtml(v)}'`;
             const LIMIT = 200;
-            document.getElementById('investigate-modal-body').innerHTML = idx.length ? idx.slice(0, LIMIT).map(i => {
-                const raw = engRawValue(db, i, c.colIndex);
-                const out = db.sample[i][c.colIndex];
-                const result = state === 'fail' ? escapeHtml(engReason(db, colName, ruleName))
-                    : (state === 'skip' ? `<span class="text-gray-400">${db.engine.rows[i][5][db.engine.cols.indexOf(c)] === 'E' ? 'Empty — not checked' : 'Already converted by an earlier step'}</span>` : `<span class="font-mono">${escapeHtml(out)}</span>`);
-                return `<tr class="hover:bg-gray-50 transition-colors">
-                    <td class="px-4 py-2.5 whitespace-nowrap font-mono text-sm text-drive-text">${escapeHtml(db.sample[i][idCol])}</td>
-                    <td class="px-4 py-2.5 whitespace-nowrap font-mono text-sm text-drive-textVariant">${db.engine.days[db.engine.rows[i][1]]}</td>
-                    <td class="px-4 py-2.5 whitespace-nowrap font-mono ${tone.td}">${showVal(raw)}</td>
-                    <td class="px-4 py-2.5 text-sm font-sans text-drive-text">${result}</td>
-                </tr>`;
-            }).join('') : `<tr><td colspan="4" class="px-4 py-10 text-center text-drive-textVariant bg-gray-50/50">No rows in this state</td></tr>`;
+            document.getElementById('investigate-modal-body').innerHTML = idx.length ? idx.slice(0, LIMIT).map(i => `
+                <tr class="hover:bg-gray-50 transition-colors">
+                    <td class="px-4 py-2.5 whitespace-nowrap ${tone.td}">${showVal(engRawValue(db, i, c.colIndex))}</td>
+                </tr>`).join('') : `<tr><td class="px-4 py-10 text-center text-drive-textVariant bg-gray-50/50">No rows in this state</td></tr>`;
             const scope = `${getQualitySource()} · ${engDay ? engDay : `${qualityStartDate} to ${qualityEndDate}`}`;
             document.getElementById('investigate-modal-count').innerText = idx.length > LIMIT
                 ? `Showing first ${LIMIT} of ${idx.length.toLocaleString()} rows (${scope})`
