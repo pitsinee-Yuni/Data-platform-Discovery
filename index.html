@@ -1,3 +1,4 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -375,9 +376,9 @@
                                         <th class="px-6 py-3.5 font-medium">Name</th>
                                         <th class="px-6 py-3.5 font-medium">Source</th>
                                         <th class="px-6 py-3.5 font-medium">Record Count (Rows)</th>
-                                        <th class="px-6 py-3.5 font-medium text-green-700">Pass</th>
-                                        <th class="px-6 py-3.5 font-medium text-red-500">Chain Exhausted</th>
-                                        <th class="px-6 py-3.5 font-medium text-blue-500">Completeness</th>
+                                        <th class="px-6 py-3.5 font-medium text-green-700" title="Cells that have a value and were converted successfully (higher is better)">Pass</th>
+                                        <th class="px-6 py-3.5 font-medium text-red-500" title="Cells that have a value but no transformer could convert (lower is better)">Chain Exhausted</th>
+                                        <th class="px-6 py-3.5 font-medium text-blue-500" title="Cells that have a value, i.e. not empty (higher is better). 100% minus Completeness = empty cells">Completeness</th>
                                         <th class="px-6 py-3.5 font-medium">Last Modified Date</th>
                                         <th class="px-6 py-3.5 font-medium">E-Score</th>
                                     </tr>
@@ -1468,7 +1469,7 @@
                     <td class="px-6 py-3.5 whitespace-nowrap text-xs font-mono text-drive-textVariant">${item.rows}</td>
                     <td class="px-6 py-3.5 whitespace-nowrap text-xs font-medium text-green-700">${item.passed}%</td>
                     <td class="px-6 py-3.5 whitespace-nowrap text-xs ${item.invalid > 10 ? 'text-red-600 font-medium' : 'text-drive-textVariant'}">${item.invalid}%</td>
-                    <td class="px-6 py-3.5 whitespace-nowrap text-xs ${item.nulls > 10 ? 'text-orange-600 font-medium' : 'text-drive-textVariant'}">${item.nulls}%</td>
+                    <td class="px-6 py-3.5 whitespace-nowrap text-xs ${(100 - item.nulls) < 90 ? 'text-orange-600 font-medium' : 'text-drive-textVariant'}" title="Cells that have a value (${item.nulls}% empty)">${100 - item.nulls}%</td>
                     <td class="px-6 py-3.5 whitespace-nowrap text-xs text-drive-textVariant">${item.updated}</td>
                     <td class="px-6 py-3.5 whitespace-nowrap">
                         <button type="button" onclick="event.stopPropagation(); openOverviewRow(${idx}, 'quality')" title="View Quality Report${item.source ? ' for ' + escapeHtml(item.source) : ''}" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-mono font-medium border ${escoreColor} hover:shadow-sm hover:brightness-95 focus:outline-none focus:ring-2 focus:ring-blue-300 transition">
@@ -3238,7 +3239,7 @@
         }
 
         // Execution Steps follow the railway (monadsquishy) chain, in execution order:
-        //   must_exist : Pass = has a value, Fail = empty (→ Missing / Completeness)
+        //   must_exist : Pass = has a value (→ Completeness), Fail = empty (→ Missing = 100 - Completeness)
         //   transformer: rows not converted yet arrive here → Pass (converted) or Fail (go to next step);
         //                rows already converted earlier or empty are Skip (grey)
         //   chain_exhausted: Fail = rows no transformer could convert (→ Chain Exhausted), everything else Skip
@@ -4124,3 +4125,4 @@
     </script>
 </body>
 </html>
+</body></html>
