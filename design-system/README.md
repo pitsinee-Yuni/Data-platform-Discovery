@@ -84,7 +84,7 @@ Discovery เป็นแอปใน Data Platform V4.1 ของ Storemesh ส
 ## โลโก้
 
 - ใช้ไฟล์ `assets/Logos/discovery-mark.png` (สัญลักษณ์ดอกจันสีขาวบนสี่เหลี่ยม `brand`) ห้ามวาดใหม่ เปลี่ยนสี หรือยืดสัดส่วน
-- ใน sidebar แสดงขนาด 40px มุม 8px คู่กับคำว่า "Discovery" คำเดียว ขนาด `title-large` (22px น้ำหนัก 400) สี `ink-muted` แบบเดียวกับ "Drive" ใน Google Drive ห้ามเติมคำว่า Application
+- ใน sidebar แสดงขนาด 40px มุม 8px คู่กับคำว่า "Discovery" คำเดียว ขนาด 22px น้ำหนัก 500 (Medium) สี `ink-muted` แบบเดียวกับ "Drive" ใน Google Drive ห้ามเติมคำว่า Application
 - ใช้เป็น favicon ของแอปด้วย ขนาดเล็กสุดที่ใช้ได้คือ 16px
 
 ## การเข้าถึง

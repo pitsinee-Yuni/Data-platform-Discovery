@@ -122,5 +122,5 @@
 
 /* Section title (card and section headings) */
 .dd-section-title { margin: 0; font: 500 16px/24px var(--font-sans); color: var(--ink); }
-.dd-wordmark { font: 400 22px/28px var(--font-sans); color: var(--ink-muted); }
+.dd-wordmark { font: 500 22px/28px var(--font-sans); color: var(--ink-muted); }
 .dd-table .is-num, .dd-table .is-code { font: 400 14px/20px var(--font-mono); }
