@@ -615,15 +615,6 @@
 
                                 <div class="flex flex-wrap items-center gap-3" id="preview-filters-container">
 
-                                    <button type="button" onclick="togglePreviewSearchRow()" id="preview-search-toggle-btn" title="Toggle Column Search" class="relative flex items-center gap-1.5 bg-white border border-gray-300 hover:bg-gray-50 hover:border-gray-400 text-drive-text rounded-xl pl-3 pr-2.5 py-1.5 text-sm font-medium transition-all shadow-xs focus:outline-none focus:ring-1 focus:ring-drive-primary">
-                                        <svg class="w-3.5 h-3.5 text-drive-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"></path></svg>
-                                        <span>Column Search</span>
-                                        <span id="preview-search-active-dot" class="hidden w-1.5 h-1.5 rounded-full bg-drive-primary"></span>
-                                        <span id="preview-search-close-icon" onclick="event.stopPropagation(); closePreviewSearchRow();" title="Close Search" class="hidden items-center justify-center w-4 h-4 rounded-full text-drive-primary hover:bg-blue-100 transition-colors">
-                                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
-                                        </span>
-                                    </button>
-
                                     <div class="flex items-center gap-2">
                                             <span class="text-sm font-medium text-drive-textVariant">Source:</span>
                                             <div class="relative">
@@ -654,6 +645,16 @@
                                             </datalist>
                                         </div>
                                     </div>
+
+                                    <span class="h-5 w-px bg-gray-200"></span>
+                                    <button type="button" onclick="togglePreviewSearchRow()" id="preview-search-toggle-btn" title="Search inside each column" class="relative flex items-center gap-1.5 bg-drive-primary hover:bg-blue-700 text-white rounded-full px-4 py-2 text-sm font-medium transition-colors shadow-xs focus:outline-none focus:ring-2 focus:ring-blue-300">
+                                        <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"></path></svg>
+                                        <span>Column Search</span>
+                                        <span id="preview-search-active-dot" class="hidden w-1.5 h-1.5 rounded-full bg-white"></span>
+                                        <span id="preview-search-close-icon" onclick="event.stopPropagation(); closePreviewSearchRow();" title="Close Search" class="hidden items-center justify-center w-4 h-4 rounded-full hover:bg-blue-200 transition-colors">
+                                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                        </span>
+                                    </button>
 
                                 </div>
 
@@ -2622,11 +2623,13 @@
             const btn = document.getElementById('preview-search-toggle-btn');
             if (row) row.classList.toggle('hidden', !previewSearchVisible);
             if (btn) {
-                btn.classList.toggle('bg-blue-50', previewSearchVisible);
-                btn.classList.toggle('bg-white', !previewSearchVisible);
-                btn.classList.toggle('border-drive-primary', previewSearchVisible);
-                btn.classList.toggle('border-gray-300', !previewSearchVisible);
-                btn.classList.toggle('text-drive-primary', previewSearchVisible);
+                // Filled primary button; while the search row is open it turns tonal (like a pressed toggle)
+                btn.classList.toggle('bg-drive-primary', !previewSearchVisible);
+                btn.classList.toggle('hover:bg-blue-700', !previewSearchVisible);
+                btn.classList.toggle('text-white', !previewSearchVisible);
+                btn.classList.toggle('bg-drive-secondaryContainer', previewSearchVisible);
+                btn.classList.toggle('hover:bg-blue-200', previewSearchVisible);
+                btn.classList.toggle('text-drive-onSecondaryContainer', previewSearchVisible);
             }
             const closeIcon = document.getElementById('preview-search-close-icon');
             if (closeIcon) {
