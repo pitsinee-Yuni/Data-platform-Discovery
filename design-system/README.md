@@ -21,7 +21,10 @@ Discovery เป็นแอปใน Data Platform V4.1 ของ Storemesh ส
 - ข้อความบนหน้าจอเป็น**ภาษาอังกฤษ** ส่วนคู่มือและเอกสารเป็นภาษาไทย
 - ปุ่มและเมนูระดับหน้าใช้ Title Case: "Create Data Product", "Add Row", "Platform Overview" ส่วน action ในแถวและข้อความอื่นใช้ sentence case: "Add to dictionary", "No description yet", "Right-click to rename or delete"
 - ใช้คำศัพท์ชุดเดียวกันทุกหน้า: Data Product, Source, Data Dictionary, Preview, Lineage, Pass, Chain Exhausted, Completeness, E-Score, Missing, Not in design ห้ามใช้คำพ้อง เช่น dataset, table, origin
-- Completeness คือสัดส่วนช่องที่**มีค่า** (ยิ่งสูงยิ่งดี) ทั้งในตารางและในกราฟ
+- ความหมายของตัวชี้วัด ใช้ให้ตรงกันทุกหน้า:
+  - **Pass** คือข้อมูลที่นำไปใช้ได้ (แปลงสำเร็จ หรือเป็นช่องว่างในคอลัมน์ที่ไม่บังคับกรอก)
+  - **Chain Exhausted** คือข้อมูลผิดรูปแบบที่ระบบแปลงไม่ได้ → แจ้ง Data Engineer
+  - **Completeness** คือสัดส่วนช่องที่**มีค่า**ของทุกคอลัมน์ (ยิ่งสูงยิ่งดี) คอลัมน์ใดว่างมากค่านี้จะต่ำลง จึงอาจต่ำกว่า Pass ได้ → ดูว่าช่องว่างอยู่คอลัมน์ไหนก่อนแจ้งเจ้าของข้อมูล
 - ตัวเลขเปอร์เซ็นต์เป็นจำนวนเต็ม (90%) ตัวเลขนับมีจุลภาค (1,800) วันที่บนปุ่มและแกนกราฟใช้รูปแบบสั้น "9 Oct" ใน Tooltip ใช้รูปแบบเต็ม "Fri, 9 Oct 2026" ในตารางใช้ dd/mm/yyyy
 - ยังไม่มีข้อมูล แสดง "—" และป้าย "No data" ห้ามแสดง 0 แทน "ไม่มีข้อมูล"
 - กล่องยืนยันบอกผลกระทบเป็นข้อ ๆ ก่อนให้กดยืนยัน ("What changes when you rename") ข้อความยืนยันหลังทำเสร็จเป็นอดีตกาล: Renamed "clean_data" to "trade_quality"
