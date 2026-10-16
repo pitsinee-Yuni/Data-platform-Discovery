@@ -446,8 +446,7 @@
                         <div id="tab-overview" class="tab-content active space-y-6">
                             
                             <!-- Overview Filters -->
-                            <div class="flex flex-wrap items-center justify-between gap-3 bg-drive-surface p-2.5 rounded-2xl border border-gray-200">
-                                <p id="overview-filter-summary" class="px-1 text-[11px] text-drive-textVariant">Showing: all data</p>
+                            <div class="flex flex-wrap items-center justify-end gap-3 bg-drive-surface p-2.5 rounded-2xl border border-gray-200">
                                 <div class="flex flex-wrap items-center gap-3">
                                     <div class="flex items-center gap-2">
                                         <span class="text-[11px] font-medium text-drive-textVariant">Source:</span>
@@ -1690,7 +1689,6 @@
                 val.className = "text-3xl font-semibold text-gray-300 leading-none";
                 badge.className = "bg-gray-100 text-gray-500 border border-gray-200 text-xs px-2.5 py-1 rounded-full font-medium";
                 badge.innerText = "No data";
-                document.getElementById("overview-filter-summary").innerText = 'No data yet';
                 return;
             }
             const sources = getCurrentSources();
@@ -1727,7 +1725,7 @@
             if (sourceActive) parts.push(`source "${ovSource}"`);
             if (dateActive) parts.push(`${overviewStartDate || '...'} to ${overviewEndDate || '...'}`);
             const summary = document.getElementById("overview-filter-summary");
-            summary.innerText = filtered
+            if (summary) summary.innerText = filtered
                 ? (trend.length || !dateActive ? `Showing: ${parts.join(' • ')}` : `No data in this time range • ${parts.join(' • ')}`)
                 : 'Showing: all data';
         }
