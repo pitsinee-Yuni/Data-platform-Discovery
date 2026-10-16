@@ -1,0 +1,12 @@
+﻿column_name,data_type,description,required
+request_id,VARCHAR,รหัสคำขอ,Yes
+source_system,VARCHAR,ระบบต้นทางที่ส่งข้อมูล,Yes
+request_date,DATE,วันที่ยื่นคำขอ (YYYY-MM-DD),Yes
+applicant_name,VARCHAR,ชื่อผู้ยื่นคำขอ (ข้อมูลสมมติ),Yes
+province,VARCHAR,จังหวัด ชื่อมาตรฐานภาษาไทย,Yes
+service_type,VARCHAR,ประเภทบริการ,Yes
+fee_amount,"DECIMAL(18,2)",ค่าธรรมเนียม (บาท),Yes
+payment_status,VARCHAR,สถานะการชำระ: ชำระแล้ว / รอชำระ / ยกเลิก,Yes
+contact_phone,VARCHAR,เบอร์ติดต่อ (สมมติ),No
+remark,VARCHAR,หมายเหตุ,No
+channel,VARCHAR,ช่องทางยื่นคำขอ (ออกแบบไว้ แต่ยังไม่มีในข้อมูล),Yes
